@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class LecteurEndroit extends LectureDuFichier implements Lecteur {
+public class LecteurEndroit extends LectureDuFichier {
 	protected BufferedReader br;
 	protected StringBuffer sb;
 	protected String ligne;
