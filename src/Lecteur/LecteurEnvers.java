@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LecteurEnvers extends LectureDuFichier implements Lecteur {
+public class LecteurEnvers extends LectureDuFichier {
 	protected BufferedReader br;
 	protected StringBuffer sb;
 	protected String ligne;
