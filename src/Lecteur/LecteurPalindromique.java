@@ -5,12 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LecteurPalindromique extends LectureDuFichier implements Lecteur {
-	BufferedReader br;
-	StringBuffer sb;
-	String ligne;
-	ArrayList<String> liste = new ArrayList<String>();
-	ArrayList<String> listeFinale = new ArrayList<String>();
+public class LecteurPalindromique extends LectureDuFichier {
+	protected BufferedReader br;
+	protected StringBuffer sb;
+	protected String ligne;
+	protected ArrayList<String> liste;
+	protected ArrayList<String> listeFinale;
 	
 	public LecteurPalindromique(String cheminFichier) {
 		super(cheminFichier);
@@ -19,7 +19,9 @@ public class LecteurPalindromique extends LectureDuFichier implements Lecteur {
 	public void charger() {
 		try {          
 		      br = new BufferedReader(new FileReader(super.fichier));  
-		      sb = new StringBuffer();   
+		      sb = new StringBuffer(); 
+		      liste = new ArrayList<String>();
+		      listeFinale = new ArrayList<String>();
 
 		      while((ligne = br.readLine()) != null) {
 		    	liste.add(ligne);    
@@ -39,13 +41,14 @@ public class LecteurPalindromique extends LectureDuFichier implements Lecteur {
 		    	  i=i+1;
 		      }
 
-		      i = listeFinale.size() - 1;
-		      while (i != 0) {
+		      i = 0;
+		      while (i < listeFinale.size()) {
+		    	  sb.append(liste.get(i));
+		    	  sb.append(" ");
 		    	  sb.append(listeFinale.get(i));
 		    	  sb.append("\n");
-		    	  i=i-1;
-		      }
-		      
+		    	  i=i+1;
+		      }		      
 		      super.contenuFichier = sb;
 		    }
 		    catch(IOException e) {

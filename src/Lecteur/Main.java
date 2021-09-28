@@ -24,6 +24,13 @@ public class Main {
 		LecteurPalindromique temp3 = new LecteurPalindromique("test.txt");
 		temp3.charger();
 		temp3.lire();
+		
+		System.out.println("Comparaison de deux fichiers :");
+		System.out.println("\n");
+		
+		ComparateurFichiers temp4 = new ComparateurFichiers("test.txt", "test2.txt");
+		temp4.charger();
+		temp4.contenuComparaison();
 	}
 
 }

@@ -5,9 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class LecteurEndroit extends LectureDuFichier implements Lecteur {
-	BufferedReader br;
-	StringBuffer sb;
-	String ligne;
+	protected BufferedReader br;
+	protected StringBuffer sb;
+	protected String ligne;
 	
 	public LecteurEndroit(String cheminFichier) {
 		super(cheminFichier);

@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LecteurEnvers extends LectureDuFichier implements Lecteur {
-	BufferedReader br;
-	StringBuffer sb;
-	String ligne;
-	ArrayList<String> list = new ArrayList<String>();
+	protected BufferedReader br;
+	protected StringBuffer sb;
+	protected String ligne;
+	protected ArrayList<String> list = new ArrayList<String>();
 		
 	public LecteurEnvers(String cheminFichier) {
 		super(cheminFichier);			
