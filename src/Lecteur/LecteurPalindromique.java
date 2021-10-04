@@ -11,12 +11,15 @@ public class LecteurPalindromique extends LectureDuFichier {
 	protected String ligne;
 	protected ArrayList<String> liste;
 	protected ArrayList<String> listeFinale;
+	protected LecteurEndroit Endroit;
 	
 	public LecteurPalindromique(String cheminFichier) {
 		super(cheminFichier);
+		Endroit = new LecteurEndroit(cheminFichier);
 	}
 	
 	public void charger() {
+		Endroit.charger();
 		try {          
 		      br = new BufferedReader(new FileReader(super.fichier));  
 		      sb = new StringBuffer(); 
@@ -28,8 +31,8 @@ public class LecteurPalindromique extends LectureDuFichier {
 		      }
 		      br.close();
 		      
-		      int i = 0;
-		      while (i < liste.size()) {
+		      int i = liste.size() - 1;
+		      while (i != -1) {
 	    		  String[] tabString = liste.get(i).split("");
 		    	  int j = tabString.length - 1;
 		    	  ligne = "";
@@ -38,13 +41,11 @@ public class LecteurPalindromique extends LectureDuFichier {
 		    		  j=j-1;
 		    	  }
 		    	  listeFinale.add(ligne);
-		    	  i=i+1;
+		    	  i=i-1;
 		      }
 
 		      i = 0;
 		      while (i < listeFinale.size()) {
-		    	  sb.append(liste.get(i));
-		    	  sb.append(" ");
 		    	  sb.append(listeFinale.get(i));
 		    	  sb.append("\n");
 		    	  i=i+1;
@@ -54,6 +55,10 @@ public class LecteurPalindromique extends LectureDuFichier {
 		    catch(IOException e) {
 		      e.printStackTrace();
 		    }
+	}
+	public void lire() {
+		Endroit.lire();
+		super.lire();
 	}
 
 }
